@@ -9,13 +9,15 @@ const form = document.querySelector('form');
       });
 
       function addTask(taskText) {
-        const taskItem = document.createElement('li');
-        taskItem.textContent = taskText;
-        taskList.appendChild(taskItem);
-
-        taskItem.addEventListener('click', () => {
-          removeTask(taskItem);
-        });
+        if (taskText !== "") {
+         const taskItem = document.createElement('li');
+         taskItem.className = "taskItem"
+         taskItem.textContent = taskText;
+         taskList.appendChild(taskItem);
+         taskItem.addEventListener('click', () => {
+           removeTask(taskItem);
+         });
+        }
       }
 
       function removeTask(taskItem) {
